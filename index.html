@@ -33,7 +33,7 @@ function stop() {
     const form = new FormData();
     form.append("file", blob, "audio.webm");
 
-    const res = await fetch("/api/index.py/transcribe", {
+    const res = await fetch("/api/transcribe", {
       method: "POST",
       body: form
     });
