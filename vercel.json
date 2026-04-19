@@ -1,10 +1,5 @@
 {
-  "functions": {
-    "api/transcribe.py": {
-      "runtime": "python3.13.5"
-    }
-  },
   "routes": [
-    { "src": "/(.*)", "dest": "api/transcribe.py" }
+    { "src": "/(.*)", "dest": "api/index.py" }
   ]
 }
