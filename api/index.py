@@ -26,7 +26,10 @@ async def transcribe(file: UploadFile = File(...)):
             }
         )
 
-        return response.json()
+        return {
+            "status_code": response.status_code,
+            "response": response.text
+        }
 
     except Exception as e:
         return {"error": str(e)}
