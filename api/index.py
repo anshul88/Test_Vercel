@@ -6,10 +6,6 @@ app = FastAPI()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-@app.get("/")
-def home():
-    return {"message": "Speech-to-Text API is running 🚀"}
-
 @app.post("/transcribe")
 async def transcribe(file: UploadFile = File(...)):
     audio_bytes = await file.read()
@@ -20,7 +16,7 @@ async def transcribe(file: UploadFile = File(...)):
             "Authorization": f"Bearer {OPENAI_API_KEY}"
         },
         files={
-            "file": ("audio.wav", audio_bytes),
+            "file": ("audio.webm", audio_bytes),
             "model": (None, "whisper-1")
         }
     )
