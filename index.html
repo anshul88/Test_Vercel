@@ -11,7 +11,7 @@
 <button onclick="stop()">Stop</button>
 
 <p><b>Result:</b></p>
-<p id="result"></p>
+<p id="result">Waiting...</p>
 
 <script>
 let recorder, chunks=[];
@@ -33,7 +33,7 @@ function stop() {
     const form = new FormData();
     form.append("file", blob, "audio.webm");
 
-    const res = await fetch("/api/transcribe", {
+    const res = await fetch("/api/index.py/transcribe", {
       method: "POST",
       body: form
     });
